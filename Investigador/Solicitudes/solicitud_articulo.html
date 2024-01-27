@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<meta charset="UTF-8" http-equiv="content-type" content="text/html; charset=windows-1252">
+    <title>Formulario de Solicitud de Artículo Académico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }<!DOCTYPE html>
+        <html>
+        <head>
+            <title>Formulario de Solicitud de Artículo Académico</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                }
+        
+                form {
+                    max-width: 800px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    background-color: #f7f7f7;
+                }
+        
+                h1 {
+                    text-align: center;
+                }
+        
+                h2 {
+                    background-color: #333;
+                    color: #fff;
+                    padding: 10px;
+                }
+        
+                label {
+                    display: block;
+                    margin-top: 10px;
+                }
+        
+                input[type="text"],
+                input[type="number"],
+                textarea {
+                    width: 100%;
+                    padding: 10px;
+                    margin-top: 5px;
+                    margin-bottom: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 3px;
+                }
+        
+                input[type="submit"] {
+                    background-color: #333;
+                    color: #fff;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 3px;
+                    cursor: pointer;
+                }
+        
+                input[type="submit"]:hover {
+                    background-color: #555;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Formulario de Solicitud de Adquisición de Artículo para el Museo</h1>
+            <form>
+                <!-- Información del Solicitante -->
+                <label for="nombre_solicitante">Nombre del Solicitante:</label>
+                <input type="text" id="nombre_solicitante" name="nombre_solicitante" required>
+        
+                <label for="afiliacion">Afiliación o Museo Solicitante:</label>
+                <input type="text" id="afiliacion" name="afiliacion" required>
+        
+                <label for="email_solicitante">Correo Electrónico de Contacto:</label>
+                <input type="email" id="email_solicitante" name="email_solicitante" required>
+        
+                <!-- Detalles del Artículo Solicitado -->
+                <h2>Detalles del Artículo Solicitado</h2>
+                <label for="nombre_articulo">Nombre del Artículo u Objeto:</label>
+                <input type="text" id="nombre_articulo" name="nombre_articulo" required>
+        
+                <label for="descripcion_articulo">Descripción del Artículo:</label>
+                <textarea id="descripcion_articulo" name="descripcion_articulo" rows="4" cols="50" required></textarea>
+        
+                <label for="autor_articulo">Autor o Creador del Artículo:</label>
+                <input type="text" id="autor_articulo" name="autor_articulo">
+        
+                <label for="fecha_creacion">Fecha de Creación del Artículo (si se conoce):</label>
+                <input type="date" id="fecha_creacion" name="fecha_creacion">
+        
+                <label for="fuente_origen">Fuente de Origen del Artículo (si se conoce):</label>
+                <input type="text" id="fuente_origen" name="fuente_origen">
+        
+                <label for="tipo_adquisicion">Tipo de Adquisición (compra, donación, préstamo, etc.):</label>
+                <input type="text" id="tipo_adquisicion" name="tipo_adquisicion" required>
+        
+                <!-- Motivo de la Solicitud -->
+                <h2>Motivo de la Solicitud</h2>
+                <label for="motivo_solicitud">Motivo de la Solicitud:</label>
+                <textarea id="motivo_solicitud" name="motivo_solicitud" rows="4" cols="50" required></textarea>
+        
+                <label for="fecha_necesidad">Fecha de Necesidad (si aplica):</label>
+                <input type="date" id="fecha_necesidad" name="fecha_necesidad">
+        
+                <!-- Notas Adicionales -->
+                <h2>Notas Adicionales</h2>
+                <label for="notas_adicionales">Notas Adicionales:</label>
+                <textarea id="notas_adicionales" name="notas_adicionales" rows="4" cols="50"></textarea>
+        
+                <label for="firma">Id del Responsable:</label>
+                <input type="number" id="id_personal" name="id_personal"><br>
+        
+                <!-- Aprobación y Firma (si es necesario) -->
+                <h2>Aprobación y Firma (si es necesario)</h2>
+                <label for="firma_supervisor">Firma del Supervisor o Autoridad Responsable:</label>
+                <input type="text" id="firma_supervisor" name="firma_supervisor">
+        
+                <button onClick="generatePDF()" class="btn btn-primary">Generar PDF</button>
+                <script src = "main.js"></script>
+            </form>
+        </body>
+        </html>

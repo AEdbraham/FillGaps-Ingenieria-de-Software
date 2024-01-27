@@ -1,0 +1,74 @@
+<!--
+<script>
+	
+  localStorage.acceptCookies = 'false';
+  
+</script>
+-->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="../Imagenes/Logo1.png">
+  <title>Reportes - FillGaps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+  <div id="sidebar">
+    <div class="toggle-btn">
+      <span>&#9776</span>
+    </div>
+    <ul class="menu">
+      <li>
+        <img src="../icons/Logo_alternativo.png" alt="Logo empresa" class="logo" width="100px" height="100px">
+      </li>
+      <li class="sub_menu"><img src="../icons/hogar.png" class="icon" alt="about" width="20px" height="20px"><a
+          href="../index.html" target="_self" class="link">Home</a></li>
+      <li class="sub_menu"><img src="../icons/atencion-al-cliente.png" class="contact" alt="Logo Fazt" width="20px"
+            height="20px"><a href="../Solicitudes/solicitudes.html" target="_self" class="link">Solicitudes</a></li>
+      <li class="sub_menu"><img src="../icons/paquete.png" class="icon" alt="about" width="20px" 
+            height="20px"><a href="../Inventario/inventario.html" target="_self" class="link">Inventario</a></li>
+      <li class="sub_menu"><img src="../icons/incidente.png" class="contact" alt="Logo Fazt" width="20px"
+            height="20px"><a href="../Incidentes/incidentes.html" target="_self" class="link">Incidentes</a></li>
+    </ul>
+  </div>
+
+
+  <header>
+    <div class="logo">
+      <img src="../Imagenes/Logo1.png" alt="Logo" class="Logo">
+    </div>
+
+    <div class="Text-Logo">
+      <h1 class="text-L">FillGaps</h1>
+    </div>
+  </header>
+
+	<!--<script src="main_About.js"></script>-->
+	
+	<script>
+		function checkAcceptCookies() {
+			if (localStorage.acceptCookies == 'true') {} else {
+				$('#div-cookies').show();
+			}
+		}
+		
+		function acceptCookies() {
+			localStorage.acceptCookies = 'true';
+			$('#div-cookies').hide();
+		}
+		$(document).ready(function() {
+			checkAcceptCookies();
+		});
+	</script>
+  
+  <script src="main.js"></script>
+  <iframe src="reporte_investigacion.html" frameborder="0" id="contenido"></iframe>
+</body>
+
+</html>
