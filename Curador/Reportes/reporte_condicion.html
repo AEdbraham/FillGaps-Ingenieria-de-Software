@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Reporte de Condición en un Museo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="file"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="checkbox"] {
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reporte de Condición en un Museo</h1>
+    <form method ="POST" action="guardar_pdf.php"> 
+        <h2>Información General</h2>
+        <label for="nombre">Nombre de la Obra/Objeto:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+
+        <label for="catalogo">Número de Catálogo:</label>
+        <input type="text" id="catalogo" name="catalogo"><br>
+
+        <label for="artista">Artista/Autor:</label>
+        <input type="text" id="artista" name="artista"><br>
+
+        <label for="fecha">Fecha de Creación:</label>
+        <input type="text" id="fecha" name="fecha"><br>
+
+        <label for="tecnica">Técnica/Material:</label>
+        <input type="text" id="tecnica" name="tecnica"><br>
+
+        <label for="dimensiones">Dimensiones:</label>
+        <input type="text" id="dimensiones" name="dimensiones"><br>
+
+        <label for="ubicacion">Ubicación en el Museo:</label>
+        <input type="text" id="ubicacion" name="ubicacion"><br>
+
+        <label for="inventario">Número de Inventario:</label>
+        <input type="text" id="inventario" name="inventario"><br>
+
+        <h2>Descripción del Estado Actual</h2>
+        <label for="condicion">Condición General:</label>
+        <input type="text" id="condicion" name="condicion"><br>
+
+        <label for="danos">Daños Visibles:</label>
+        <textarea id="danos" name="danos" rows="4" cols="50"></textarea><br>
+
+        <label for="desgaste">Desgaste:</label>
+        <input type="text" id="desgaste" name="desgaste"><br>
+
+        <label for="suciedad">Suciedad/Patina:</label>
+        <input type="text" id="suciedad" name="suciedad"><br>
+
+        <label for="cambios">Cambios de Color:</label>
+        <input type="text" id="cambios" name="cambios"><br>
+
+        <label for="perdida">Pérdida de Material:</label>
+        <input type="text" id="perdida" name="perdida"><br>
+
+        <label for="estructura">Cambios Estructurales:</label>
+        <input type="text" id="estructura" name="estructura"><br>
+
+        <label for="comentarios">Comentarios Adicionales:</label>
+        <textarea id="comentarios" name="comentarios" rows="4" cols="50"></textarea><br>
+
+        <h2>Fotografías</h2>
+        <input type="file" id="fotografias" name="fotografias" accept="image/*" multiple><br>
+
+        <h2>Recomendaciones</h2>
+        <label for="recomendaciones">Recomendaciones:</label>
+        <textarea id="recomendaciones" name="recomendaciones" rows="4" cols="50"></textarea><br>
+
+        <label for="medidas">Medidas Preventivas:</label>
+        <textarea id="medidas" name="medidas" rows="4" cols="50"></textarea><br>
+
+        <label for="retirar">Retirar temporalmente:</label>
+        <input type="checkbox" id="retirar" name="retirar" value="Si"> Sí<br>
+
+        <h2>Firma del Conservador/Responsable</h2>
+        <label for="firma">Firma del Conservador/Responsable:</label>
+        <input type="text" id="firma" name="firma"><br>
+
+        <label for="firma">Id del Responsable:</label>
+        <input type="number" id="id_personal" name="id_personal"><br>
+
+        <h2>Aprobación y Comentarios Adicionales</h2>
+        <label for="aprobacion">Aprobación (Dirección del Museo):</label>
+        <input type="checkbox" id="aprobacion" name="aprobacion" value="Aprobado"> Aprobado<br>
+
+        <label for="comentarios_adicionales">Comentarios Adicionales:</label>
+        <textarea id="comentarios_adicionales" name="comentarios_adicionales" rows="4" cols="50"></textarea><br>
+
+        <button onClick="generatePDF()" class="btn btn-primary">Generar PDF</button>
+        <script src = "main.js"></script>
+    </form>
+</body>
+</html>
