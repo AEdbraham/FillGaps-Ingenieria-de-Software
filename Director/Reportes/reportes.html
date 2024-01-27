@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <script src=../build/pdf.mjs type="module"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script>
+    window.pdfWorkerSrc = '../build/pdf.worker.mjs';
+  </script>
+  <script src="../build/pdf.worker.mjs" type="module"></script>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="../Imagenes/Logo1.png">
+  <title>Home - FillGaps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    #pdf-container {
+        width: 100%;
+        height: 600px;
+    }
+</style>
+</head>
+
+<body>
+
+  <div id="sidebar">
+    <div class="toggle-btn">
+      <span>&#9776</span>
+    </div>
+    <ul class="menu">
+      <li>
+        <img src="../icons/Logo_alternativo.png" alt="Logo empresa" class="logo" width="100px" height="100px">
+      </li>
+      <li class="sub_menu"><img src="../icons/hogar.png" class="icon" alt="about" width="20px" height="20px"><a
+        href="../index.html" target="_self" class="link">Home</a></li>
+      <li class="sub_menu" id="registrar-dropdown"><img src="../icons/registrar.png" class="contact" alt="Logo Fazt" width="20px"
+          height="20px"><a href="javascript:void(0);" target="_self" class="link" onclick="toggleReportesDropdown()">Registrar</a>
+      <ul class="sub_menu" id="registrar-dropdown-content">
+        <li><a href="../Registrar/RegistrarPersonal.html" target="_self" class="link">Personal</a></li>
+        <li><a href="../Registrar/RegistrarPrograma.html" target="_self" class="link">Programa</a></li>
+      </ul>
+      </li>     
+      <li class="sub_menu"><img src="../icons/factura.png" class="contact" alt="Logo Fazt" width="20px"
+        height="20px"><a href="../Facturas/facturas.html" target="_self" class="link">Facturas</a></li>
+      <li class="sub_menu"><img src="../icons/incidente.png" class="contact" alt="Logo Fazt" width="20px"
+          height="20px"><a href="../Incidentes/incidentes.html" target="_self" class="link">Incidentes</a></li>
+    </ul>
+  </div>
+
+  <script>
+    function toggleReportesDropdown() {
+      var reportesSubmenu = document.getElementById("registrar-dropdown-content");
+      reportesSubmenu.style.display = (reportesSubmenu.style.display === "none" || reportesSubmenu.style.display === "") ? "block" : "none";
+    }
+  </script>
+
+  <header>
+    <div class="logo">
+      <img src="../Imagenes/Logo1.png" alt="Logo" class="Logo">
+    </div>
+
+    <div class="Text-Logo">
+      <h1 class="text-L">FillGaps</h1>
+    </div>
+    <div class="usuario-text">Director</div>
+  </header>
+
+  <!--Body-->
+
+  <table id="pdf-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre del PDF</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<div id="pdf-container"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="main.js"></script>
+</body>
+
+</html>
